@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    background: #1c1c1c;
+}
+
+.content {
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center;     /* vertically center */
+}
+
+.content img {
+    max-width: 100%;
+}
