@@ -1,17 +1,44 @@
 :root {
-  --tab-side: 40px;
+  --tab-side: 28px;
   --tab-hypotenuse: 56.6px; /* tab side * Math.sqrt(2) */
   --tab-border-size: 2px;
   --tab-border: var(--tab-border-size) solid black;
+  --innovation-green: linear-gradient(270deg, #96d5b6, #bbe4cd, #d1eddd);
+  --culture-blue: linear-gradient(270deg, #a6b6d7, #c0cee4, #dbe1ef);
+  --news-orange: linear-gradient(270deg, #fdbc7a, #fed9b0, #fee6c9);
+  --power-red: linear-gradient(270deg, #f1718d, #fde2f0);
+  --climate-yellow: linear-gradient(270deg, #cce97b, #d3edac, #e9f6d4);
+  --RP-purple: linear-gradient(270deg, #aaacd2, #cbcbe3, #e6e6f1);
+  --featured-yellow: radial-gradient(#ffffde, #ffffba, #ffff73);
+  --history-blue: linear-gradient(270deg, #9fd0e4, #b3e2ee, #dbf2f7);
 }
 
 body {
     margin: 0;
-    background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+    background-image: linear-gradient(90deg, #9cca76, #f1718d, #83b9d0, #f7ef81, #f1718d, #f7ef81, #83b9d0, #9cca76);
+    font-family: sans-serif;
+    font-style: italic;
 }
 
 h1 {
     margin: 0;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+h1:after {
+    content: " ...";
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+}
+
+li {
+    padding: 10px;
 }
 
 #container {
@@ -21,23 +48,47 @@ h1 {
 }
 
 .box {
-    width: 400px;
+    width: 360px;
     min-height: 400px;
     text-align: left;
     position: relative;
-    background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+    background: var(--red);
     clip-path: polygon(var(--tab-side) 0px, 100% 0px, 100% 100%, 0% 100%, 0px var(--tab-side));
-    margin: 0 3px 6px 3px;
+    margin: 0 -1px calc(-1 * var(--tab-side)) -1px;
+}
+.box:nth-child(1) {
+    background-image: var(--power-red);
+}
+.box:nth-child(2) {
+    background-image: var(--innovation-green);
+}
+.box:nth-child(3) {
+    background-image: var(--culture-blue);
+}
+.box:nth-child(4) {
+    background-image: var(--news-orange);
+}
+.box:nth-child(5) {
+    background-image: var(--climate-yellow);
+}
+.box:nth-child(6) {
+    background-image: var(--RP-purple);
+}
+.box:nth-child(7) {
+    background-image: var(--featured-yellow);
+}
+.box:nth-child(8) {
+    background-image: var(--history-blue);
 }
 
 .box.placeholder {
-    opacity: 25%;
+    opacity: 0%;
     background-image: none;
     clip-path: none;
 }
 
 svg#header {
-    max-width: 600px;
+    max-width: 800px;
     display: block;
     margin: 0 auto;
 }
@@ -48,8 +99,9 @@ svg#header text {
     fill: white;
     stroke: black;
     stroke-width: 1;
+    font-weight: bold;
     text-anchor: middle;
-    font: italic 40px sans-serif;
+    font-size: 44px;
 }
 
 .box-tab {
