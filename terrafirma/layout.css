@@ -8,7 +8,7 @@
   --news-orange: linear-gradient(270deg, #fdbc7a, #fed9b0, #fee6c9);
   --power-red: linear-gradient(270deg, #f1718d, #fde2f0);
   --climate-yellow: linear-gradient(270deg, #cce97b, #d3edac, #e9f6d4);
-  --RP-purple: linear-gradient(270deg, #aaacd2, #cbcbe3, #e6e6f1);
+  --pr-purple: linear-gradient(270deg, #aaacd2, #cbcbe3, #e6e6f1);
   --featured-yellow: radial-gradient(#ffffde, #ffffba, #ffff73);
   --history-blue: linear-gradient(270deg, #9fd0e4, #b3e2ee, #dbf2f7);
 }
@@ -22,14 +22,10 @@ body {
 
 h1 {
     margin: 0;
-    padding: 10px;
+    padding: 0;
     text-transform: uppercase;
     font-size: 18px;
     font-weight: normal;
-}
-
-h1:after {
-    content: " ...";
 }
 
 ul {
@@ -45,6 +41,25 @@ li {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+img.brush {
+    width: 140px;
+    display: block;
+    margin-top: 4px;
+}
+
+.box h1, .box img.brush {
+    position: relative;
+    top: -10px;
+}
+
+.box h1:after {
+    content: " ...";
+}
+
+.box h1, .box img, .box ul {
+    padding-left: 28px;
 }
 
 .box {
@@ -72,7 +87,7 @@ li {
     background-image: var(--climate-yellow);
 }
 .box:nth-child(6) {
-    background-image: var(--RP-purple);
+    background-image: var(--pr-purple);
 }
 .box:nth-child(7) {
     background-image: var(--featured-yellow);
