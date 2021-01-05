@@ -33,8 +33,9 @@ ul {
     list-style: none;
 }
 
-li {
-    padding: 10px;
+.box li {
+    font-size: 14px;
+    padding: 10px 10px 10px 0;
 }
 
 #container {
@@ -69,7 +70,7 @@ img.brush {
     position: relative;
     background: var(--red);
     clip-path: polygon(var(--tab-side) 0px, 100% 0px, 100% 100%, 0% 100%, 0px var(--tab-side));
-    margin: 0 -1px calc(-1 * var(--tab-side)) -1px;
+    margin: 0 0 calc(-1 * var(--tab-side)) 0;
 }
 .box:nth-child(1) {
     background-image: var(--power-red);
@@ -146,4 +147,9 @@ svg#header text {
     height: calc(100% - var(--tab-side) - var(--tab-border-size));
     border: var(--tab-border);
     border-top: none;
+}
+
+.dateline {
+    margin-top: 5px;
+    text-transform: uppercase;
 }
