@@ -92,6 +92,11 @@ var renderBox = function(title, items) {
 	}
         divElem.innerHTML = text;
         liElem.appendChild(divElem);
+	var imgElem = document.createElement('img');
+	imgElem.setAttribute('src', 'assets/think_fashion_article_rule_hover.svg');
+	imgElem.setAttribute('alt', 'rule');
+	imgElem.classList.add('rule');
+	liElem.appendChild(imgElem);
         elem.getElementsByTagName('ul')[0].appendChild(liElem);
     }
 
