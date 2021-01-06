@@ -40,16 +40,47 @@ function reportWindowSize() {
 }
 
 var protoBox = boxes[0].cloneNode(true);
+
+var makeTwitterURL = function(uname) {
+    return 'https://twitter.com/' + uname.replace('@', '');
+}
+
 var renderBox = function(title, items) {
     var elem = protoBox.cloneNode(true);
     elem.getElementsByTagName('h1')[0].textContent = title;
 
     for (var i = 0; i < items.length; i++) {
-        var liElem = document.createElement("li");
-        var text = items[i][keys.indexOf('Title')] + ' // ' + items[i][keys.indexOf('Author')];
-        liElem.textContent = text;
-	var divElem = document.createElement("div");
-	text = items[i][keys.indexOf('Publication Title')];
+        var liElem = document.createElement('li');
+	var linkElem = document.createElement('a');
+	linkElem.setAttribute('target', '_blank');
+	linkElem.setAttribute('href', items[i][keys.indexOf('URL')]);
+	linkElem.innerHTML = items[i][keys.indexOf('Title')];
+
+	var authorTwitter = items[i][keys.indexOf('Author Twitter')];
+	var authorContent = items[i][keys.indexOf('Author')];
+	if (authorTwitter != '') {
+	    var authElem = document.createElement('a');
+	    authElem.setAttribute('href', makeTwitterURL(authorTwitter));
+	    authElem.setAttribute('target', '_blank');
+	    authElem.innerHTML = authorContent;
+	    authorContent = authElem.outerHTML;
+	}
+
+        liElem.innerHTML = linkElem.outerHTML + ' // ' + authorContent;
+
+	var divElem = document.createElement('div');
+	divElem.classList.add('dateline');
+	var pubURL = items[i][keys.indexOf('Publication URL')];
+	var pubContent = items[i][keys.indexOf('Publication Title')];
+	if (pubURL != '') {
+	    var pubElem = document.createElement('a');
+	    pubElem.setAttribute('href', pubURL);
+	    pubElem.setAttribute('target', '_blank');
+	    pubElem.innerHTML = pubContent;
+	    pubContent = pubElem.outerHTML;
+	}
+
+	text = pubContent;
 	var date = items[i][keys.indexOf('Publish Date')];
 	if (date != null) {
 	    date = new Date(date);
@@ -59,12 +90,11 @@ var renderBox = function(title, items) {
 	    date = ye + '-' + mo + '-' + da;
 	    text = text + ' — ' + date;
 	}
-        divElem.textContent = text;
-        divElem.classList.add('dateline');
+        divElem.innerHTML = text;
         liElem.appendChild(divElem);
         elem.getElementsByTagName('ul')[0].appendChild(liElem);
     }
-    
+
     container.appendChild(elem);
 }
 
@@ -112,6 +142,9 @@ promise.then(response => {
 
 	var categoryArray = Object.keys(categories);
 	for (var i = 0; i < categoryArray.length; i++) {
+	    if (categoryArray[i] == 'Music') {
+		continue;
+	    }
 	    var elem = null;
 	    if (i < boxes.length) {
 		boxes[i].parentNode.removeChild(boxes[i]);
@@ -123,4 +156,3 @@ promise.then(response => {
         console.log(error.message);
     })
 })
-
