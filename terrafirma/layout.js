@@ -87,7 +87,7 @@ var renderBox = function(title, items) {
 	    var ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
 	    var mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
 	    var da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
-	    date = ye + '-' + mo + '-' + da;
+	    date = ye + '.' + mo + '.' + da;
 	    text = text + ' — ' + date;
 	}
         divElem.innerHTML = text;
