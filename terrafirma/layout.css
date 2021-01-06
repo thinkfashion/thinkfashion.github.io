@@ -20,9 +20,17 @@ body {
     font-style: italic;
 }
 
-/* a { */
-/*     cursor: crosshair; */
-/* } */
+a:hover {
+    background: #ffff008a;
+}
+
+a:hover:nth-child(2) {
+    background: #00f3ff8a;
+}
+
+.dateline a:hover {
+    background: #ffa700b8;
+}
 
 a, a:visited {
     color: black;
