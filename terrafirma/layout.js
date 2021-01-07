@@ -92,11 +92,13 @@ var renderBox = function(title, items) {
 	}
         divElem.innerHTML = text;
         liElem.appendChild(divElem);
-	var imgElem = document.createElement('img');
-	imgElem.setAttribute('src', 'assets/think_fashion_article_rule_hover.svg');
-	imgElem.setAttribute('alt', 'rule');
-	imgElem.classList.add('rule');
-	liElem.appendChild(imgElem);
+	var svgElem = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+	svgElem.setAttributeNS(null, 'viewBox', '0 0 874.8 34');
+	var polylineElem = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+	polylineElem.setAttributeNS(null, 'points', '0.7,2.6 31.2,30.4 847.2,30.4 873.7,2.5 873.7,16.4');
+	svgElem.classList.add('rule');
+	svgElem.appendChild(polylineElem);
+	liElem.appendChild(svgElem);
         elem.getElementsByTagName('ul')[0].appendChild(liElem);
     }
 

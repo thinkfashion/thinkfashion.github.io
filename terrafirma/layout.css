@@ -52,7 +52,8 @@ ul {
 
 .box li {
     font-size: 14px;
-    padding: 10px 10px 0 0;
+    padding: 9px 10px 0 0;
+    line-height: 120%;
 }
 
 #container {
@@ -67,7 +68,7 @@ img.brush {
     margin-top: 4px;
 }
 
-.box img.rule {
+.box svg.rule {
     padding: 0;
     position: relative;
     left: -17px;
@@ -175,4 +176,11 @@ svg#header text {
 .dateline {
     margin-top: 5px;
     text-transform: uppercase;
+}
+
+svg.rule polyline {
+    fill: none;
+    stroke: black;
+    stroke-width: 2.4px;
+    stroke-miterlimit: 10;
 }
