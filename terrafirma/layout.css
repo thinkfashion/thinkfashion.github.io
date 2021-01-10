@@ -123,6 +123,7 @@ img.brush {
 
 #container .box {
     min-height: 400px;
+    z-index: 100;
 }
 
 .box {
