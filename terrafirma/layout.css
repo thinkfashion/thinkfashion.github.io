@@ -24,11 +24,11 @@ body {
     font-style: italic;
 }
 
-a:hover {
+.box-content a:hover {
     background: #ffff008a;
 }
 
-a:hover:nth-child(2) {
+.box-content a:hover:nth-child(2) {
     background: #00f3ff8a;
 }
 
@@ -90,10 +90,10 @@ ul {
     top: -400px;
 }
 
-img.brush {
+svg.brush {
     width: 140px;
     display: block;
-    margin-top: 4px;
+    margin: 4px 0 0 var(--tab-side);
 }
 
 .box svg.rule {
@@ -108,7 +108,7 @@ img.brush {
     line-height: 120%;
 }
 
-.box h1, .box img.brush {
+.box h1, .box svg.brush {
     position: relative;
     top: -10px;
 }
@@ -118,7 +118,7 @@ img.brush {
 }
 
 .box h1, .box img, .box ul, .box iframe, .box form {
-    padding-left: 28px;
+    padding-left: var(--tab-side);
 }
 
 #container .box {
@@ -129,7 +129,10 @@ img.brush {
 .box {
     width: var(--box-width);
     text-align: left;
-    background: var(--red);
+    position: relative;
+}
+.box .inner {
+    height: 100%;
     clip-path: polygon(var(--tab-side) 0px, 100% 0px, 100% 100%, 0% 100%, 0px var(--tab-side));
 }
 #container .box {
@@ -174,7 +177,7 @@ img.brush {
 /* } */
 
 svg#header {
-    max-width: 800px;
+    max-width: 680px;
     display: block;
     margin: 0 auto;
 }
@@ -236,6 +239,7 @@ svg.rule polyline {
     background-image: var(--innovation-green);
     height: 186px;
     width: 310px;
+    clip-path: polygon(var(--tab-side) 0px, 100% 0px, 100% 100%, 0% 100%, 0px var(--tab-side));
 }
 
 .box.mini.up {
@@ -375,4 +379,40 @@ svg.rule polyline {
 #newsletter-box .icon-bar img {
     width: 43px;
     height: 40px;
+}
+
+.top-rule polyline {
+    fill: none;
+    stroke: black;
+    stroke-width: 1px;
+    stroke-miterlimit: 10;
+}
+
+.top-rule {
+    width: var(--box-width);
+    position: absolute;
+    top: -23px;
+}
+
+.hidden {
+    display: none;
+}
+
+.top-rule a.tweet {
+    position: absolute;
+    top: -26px;
+    font-style: normal;
+    font-size: 9px;
+    height: 4em;
+    overflow: hidden;
+    left: 7px;
+}
+
+.top-rule a.tweet img {
+    vertical-align: middle;
+    width: 47px;
+    padding: 0;
+    margin-right: -9px;
+    position: relative;
+    top: -3px;
 }

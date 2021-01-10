@@ -19,7 +19,18 @@ function reportWindowSize() {
 	if (remainder !== 0) {
 	    footer.classList.add('lift');
 	}
-	console.log('cols', cols, 'boxes', boxes.length, 'remainer', remainder);
+	console.log('cols', cols, 'boxes', boxes.length, 'remainder', remainder);
+	// show the correct top-left and top-right svg top lines
+	if (prevCols == 0) {
+	    boxes[0].children[0].classList.remove('hidden');
+	    boxes[0].children[0].children[0].classList.remove('hidden');
+	}
+	if (prevCols > 1) {
+            boxes[prevCols - 1].children[0].classList.add('hidden');
+        }
+	// if (cols > 2) {
+	boxes[cols - 1].children[0].classList.remove('hidden');
+	// }
     }
     prevCols = cols;
 }
@@ -45,7 +56,7 @@ var renderMusicBox = function(item) {
 
 var renderBox = function(title, items, className) {
     var elem = protoBox.cloneNode(true);
-    elem.classList.add(className);
+    elem.children[1].classList.add(className); // .box.inner
     elem.getElementsByTagName('h1')[0].textContent = title;
 
     for (var i = 0; i < items.length; i++) {
