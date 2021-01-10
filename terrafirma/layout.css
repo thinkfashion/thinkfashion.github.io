@@ -1,4 +1,5 @@
 :root {
+    --box-width: 360px;
     --tab-side: 28px;
     --mini-tab-side: 21px;
     --tab-hypotenuse: 39.6px; /* tab side * Math.sqrt(2) */
@@ -13,11 +14,12 @@
     --pr-purple: linear-gradient(270deg, #aaacd2, #cbcbe3, #e6e6f1);
     --featured-yellow: radial-gradient(#ffffde, #ffffba, #ffff73);
     --history-blue: linear-gradient(270deg, #9fd0e4, #b3e2ee, #dbf2f7);
+    --body-bg: linear-gradient(90deg, #9cca76, #f1718d, #83b9d0, #f7ef81, #f1718d, #f7ef81, #83b9d0, #9cca76);
 }
 
 body {
     margin: 0;
-    background-image: linear-gradient(90deg, #9cca76, #f1718d, #83b9d0, #f7ef81, #f1718d, #f7ef81, #83b9d0, #9cca76);
+    background-image: var(--body-bg);
     font-family: sans-serif;
     font-style: italic;
 }
@@ -37,6 +39,20 @@ a:hover:nth-child(2) {
 a, a:visited {
     color: black;
     text-decoration: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+
+input {
+    border: var(--tab-border);
+    text-transform: uppercase;
+    font-size: 18px;
+    font-style: italic;
+    padding: 5px 13px;
+    background: var(--body-bg);
 }
 
 h1 {
@@ -59,12 +75,19 @@ ul {
 #container {
     flex-wrap: wrap;
     justify-content: center;
+    /* justify-content: space-around; */
+    min-height: 800px;
 }
 
 #footer {
     flex-direction: column;
     align-items: flex-end;
-    padding: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+
+#footer.lift {
+    top: -400px;
 }
 
 img.brush {
@@ -94,7 +117,7 @@ img.brush {
     content: " ...";
 }
 
-.box h1, .box img, .box ul {
+.box h1, .box img, .box ul, .box iframe, .box form {
     padding-left: 28px;
 }
 
@@ -103,42 +126,51 @@ img.brush {
 }
 
 .box {
-    width: 360px;
+    width: var(--box-width);
     text-align: left;
     background: var(--red);
     clip-path: polygon(var(--tab-side) 0px, 100% 0px, 100% 100%, 0% 100%, 0px var(--tab-side));
-    /* margin: 0 0 calc(-1 * var(--tab-side)) 0; */
 }
-#container .box:nth-child(1) {
+#container .box {
+    /* margin: 0 calc(-1 * var(--tab-border-size)) 0 0; */
+    /* margin: 0 calc(-1 * var(--tab-border-size)) calc(-1 * var(--tab-side)) 0; */
+}
+.power-red {
     background-image: var(--power-red);
 }
-#container .box:nth-child(2) {
+.innovation-green {
     background-image: var(--innovation-green);
 }
-#container .box:nth-child(3) {
+.culture-blue {
     background-image: var(--culture-blue);
 }
-#container .box:nth-child(4) {
+.news-orange {
     background-image: var(--news-orange);
 }
-#container .box:nth-child(5) {
+.climate-yellow {
     background-image: var(--climate-yellow);
 }
-#container .box:nth-child(6) {
+.pr-purple {
     background-image: var(--pr-purple);
 }
-#container .box:nth-child(7) {
+.featured-yellow {
     background-image: var(--featured-yellow);
 }
-#container .box:nth-child(8) {
+.history-blue {
     background-image: var(--history-blue);
 }
 
-.box.placeholder {
-    opacity: 0%;
-    background-image: none;
-    clip-path: none;
+/* https://stackoverflow.com/questions/16377972/how-to-align-left-last-row-line-in-multiple-line-flexbox */
+.empty-space-childs {
+    width: var(--box-width); /*the width of the images in this example*/
+    height: 0; /*Important! for the divs to collapse should they fall in a new row*/
 }
+
+/* .box.placeholder { */
+/*     opacity: 0%; */
+/*     background-image: none; */
+/*     clip-path: none; */
+/* } */
 
 svg#header {
     max-width: 800px;
@@ -184,6 +216,7 @@ svg#header text {
     height: calc(100% - var(--tab-side) - var(--tab-border-size));
     border: var(--tab-border);
     border-top: none;
+    position: relative;
 }
 
 .dateline {
@@ -200,13 +233,13 @@ svg.rule polyline {
 
 .box.mini {
     background-image: var(--innovation-green);
-    height: 200px;
-    width: 300px;
+    height: 186px;
+    width: 310px;
 }
 
 .box.mini.up {
     clip-path: polygon(0% 0%, calc(var(--tab-border-size) + var(--tab-border-size) / 2) 0px, calc(var(--mini-tab-side) + var(--tab-border-size) / 2) calc(var(--mini-tab-side) - var(--tab-border-size)), 100% calc(var(--mini-tab-side) - var(--tab-border-size)), 100% 100%, 0% 100%, 0px 0px);
-    margin-bottom: calc(-1 * var(--mini-tab-side));
+    height: 155px;
 }
 
 .box.mini.up .box-tab {
@@ -242,6 +275,103 @@ svg.rule polyline {
     left: calc(-1 * var(--tab-border-size));
 }
 
+.box h1 img {
+    display: inline;
+    vertical-align: middle;
+    height: 1.7em;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: -4px;
+    left: 8px;
+}
+
+.icon-bar {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    align-items: center;
+}
+
+.icon-bar img {
+    padding: 0;
+    display: block;
+}
+
+#music-box .icon-bar img:nth-child(1) {
+    width: 32px;
+    height: 40px;
+}
+#music-box .icon-bar img:nth-child(2) {
+    width: 37px;
+    height: 46px;
+}
+#music-box .icon-bar img:nth-child(3) {
+    width: 36px;
+    height: 30px;
+    margin-top: 5px;
+}
+
+#music-box {
+    background-image: var(--innovation-green);
+}
+#newsletter-box {
+    background-image: var(--power-red);
+}
+#submit-link-box {
+    background-image: var(--history-blue);
+}
+#archive-box {
+    background-image: var(--news-orange);
+}
+
+#music-box .embed {
+    position: relative;
+    top: -7px;
+    right: 5px;
+}
+
+#newsletter-box input::placeholder {
+    text-align: right;
+}
+
 .box.mini.up h1 {
-    top: 10px;
+     top: 52px;
+}
+
+.box.mini.up form {
+    position: relative;
+    top: 58px;
+}
+
+.box.mini.up input {
+    width: 165px;
+}
+
+.box.mini.up .icon-bar {
+    top: 15px;
+    right: 23px;
+}
+
+#submit-link-box {
+    margin-top: calc(-1 * var(--mini-tab-side));
+}
+
+.box.mini.up .icon-bar img:nth-child(1) {
+    width: 45px;
+    height: 62px;
+}
+.box.mini.up .icon-bar img:nth-child(2) {
+    width: 43px;
+}
+
+#newsletter-box .icon-bar {
+    top: 74px;
+}
+
+#newsletter-box .icon-bar img {
+    width: 43px;
+    height: 40px;
 }
