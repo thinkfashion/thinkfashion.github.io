@@ -84,7 +84,7 @@ ul {
 #footer {
     flex-direction: column;
     align-items: flex-end;
-    padding-right: 20px;
+    padding-right: 37px;
     position: relative;
 }
 
@@ -427,7 +427,7 @@ svg.rule polyline {
 #footer #substack {
     position: relative;
     top: -8px;
-    left: 20px;
+    left: 37px;
     transform-origin: top right;
     transform: rotate(10deg);
 }
