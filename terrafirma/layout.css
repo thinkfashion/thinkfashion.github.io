@@ -22,6 +22,8 @@ body {
     background-image: var(--body-bg);
     font-family: sans-serif;
     font-style: italic;
+    background-size: 1300px;
+    background-position: center;
 }
 
 .box-content a:hover {
@@ -103,6 +105,7 @@ svg.brush {
 }
 
 .box li {
+    position: relative;
     font-size: 14px;
     padding: 9px 10px 0 0;
     line-height: 120%;
@@ -244,7 +247,7 @@ svg.rule polyline {
 
 .box.mini.up {
     clip-path: polygon(0% 0%, calc(var(--tab-border-size) + var(--tab-border-size) / 2) 0px, calc(var(--mini-tab-side) + var(--tab-border-size) / 2) calc(var(--mini-tab-side) - var(--tab-border-size)), 100% calc(var(--mini-tab-side) - var(--tab-border-size)), 100% 100%, 0% 100%, 0px 0px);
-    height: 155px;
+    height: 165px;
 }
 
 .box.mini.up .box-tab {
@@ -342,6 +345,10 @@ svg.rule polyline {
     text-align: right;
 }
 
+#newsletter-box form {
+    pointer-events: none;
+}
+
 .box.mini.up h1 {
      top: 52px;
 }
@@ -361,7 +368,7 @@ svg.rule polyline {
 }
 
 #submit-link-box {
-    margin-top: calc(-1 * var(--mini-tab-side));
+    /* margin-top: calc(-1 * var(--mini-tab-side)); */
 }
 
 .box.mini.up .icon-bar img:nth-child(1) {
@@ -415,4 +422,30 @@ svg.rule polyline {
     margin-right: -9px;
     position: relative;
     top: -3px;
+}
+
+#footer #substack {
+    position: relative;
+    top: -8px;
+    left: 20px;
+    transform-origin: top right;
+    transform: rotate(10deg);
+}
+
+.box .featured-yellow li {
+    font-size: 17px;
+}
+
+.box .featured-yellow li img {
+    padding-right: calc(100% - 140px);
+    padding-left: 0px;
+    width: 140px;
+}
+
+.featured-yellow .dateline {
+    position: absolute;
+    right: 28px;
+    top: 14px;
+    transform: rotate(-33deg);
+    transform-origin: right;
 }

@@ -76,7 +76,13 @@ var renderBox = function(title, items, className) {
 	    authorContent = authElem.outerHTML;
 	}
 
-        liElem.innerHTML = linkElem.outerHTML + ' // ' + authorContent;
+	if (title === 'ICYMI / Featured') {
+	    var imgElem = document.createElement('img');
+	    imgElem.setAttribute('src', items[i][keys.indexOf('Image URL')]);
+	    liElem.appendChild(imgElem);
+	}
+
+        liElem.innerHTML = liElem.innerHTML + linkElem.outerHTML + ' // ' + authorContent;
 
 	var divElem = document.createElement('div');
 	divElem.classList.add('dateline');
