@@ -208,7 +208,9 @@ Promise.all([
 	if (i < boxes.length) {
 	    boxes[i].parentNode.removeChild(boxes[i]);
 	}
-	renderBox(categories[i][0], sheet[categories[i][0]], categories[i][1]);
+	if (sheet[categories[i][0]] !== undefined) {
+	    renderBox(categories[i][0], sheet[categories[i][0]], categories[i][1]);
+	}
     }
     for (var i = 0; i < 3; i++) {
 	var emptySpaceElem = document.createElement('div');
