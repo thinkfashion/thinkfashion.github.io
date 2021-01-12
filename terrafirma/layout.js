@@ -100,7 +100,7 @@ var renderBox = function(title, items, className) {
 
 	var titleDiv = document.createElement('div');
 	titleDiv.classList.add('title-author');
-	titleDiv.innerHTML = linkElem.outerHTML + ' // ' + authorContents.join(' / ');
+	titleDiv.innerHTML = linkElem.outerHTML + ' // ' + authorContents.join(', ');
         liElem.appendChild(titleDiv);
 
 	var divElem = document.createElement('div');
