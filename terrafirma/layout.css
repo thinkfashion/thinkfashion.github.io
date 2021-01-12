@@ -179,13 +179,17 @@ svg.brush {
 /*     clip-path: none; */
 /* } */
 
-svg#header {
+svg.header {
     max-width: 680px;
     display: block;
     margin: 0 auto;
 }
 
-svg#header text {
+svg.header:nth-child(2) {
+    max-width: 412px;
+}
+
+svg.header text {
     dominant-baseline: central;
     text-transform: uppercase;
     fill: white;
@@ -405,23 +409,26 @@ svg.rule polyline {
     display: none;
 }
 
-.top-rule a.tweet {
+.top-rule a.social {
     position: absolute;
-    top: -26px;
+    top: -59px;
     font-style: normal;
     font-size: 9px;
-    height: 4em;
-    overflow: hidden;
-    left: 7px;
+    text-align: center;
+    left: 0;
 }
 
-.top-rule a.tweet img {
-    vertical-align: middle;
-    width: 47px;
+.top-rule a.social:nth-child(2) {
+    left: auto;
+    right: 0;
+}
+
+.top-rule a.social img {
+    width: 40px;
     padding: 0;
-    margin-right: -9px;
-    position: relative;
-    top: -3px;
+}
+.top-rule a.social:nth-child(2) img {
+    margin: -7px;
 }
 
 #footer #substack {

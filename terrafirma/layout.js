@@ -25,11 +25,15 @@ function reportWindowSize() {
 	    boxes[0].children[0].classList.remove('hidden');
 	    boxes[0].children[0].children[0].classList.remove('hidden');
 	}
+	if (prevCols == 1) {
+	    boxes[prevCols - 1].children[0].children[1].classList.add('hidden');
+	}
 	if (prevCols > 1) {
             boxes[prevCols - 1].children[0].classList.add('hidden');
         }
 	// if (cols > 2) {
 	boxes[cols - 1].children[0].classList.remove('hidden');
+	boxes[cols - 1].children[0].children[1].classList.remove('hidden');
 	// }
     }
     prevCols = cols;
