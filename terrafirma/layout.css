@@ -476,3 +476,37 @@ svg.rule polyline {
 .title-author {
     padding-right: 25px;
 }
+
+#legal {
+    display: flex;
+    flex-direction: row;
+    border: black;
+    padding-bottom: 50px;
+}
+
+.legal-col {
+    margin-right: 25px;
+    text-align: center;
+}
+
+.legal-col img {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(25% - 8px);
+    margin: 4px;
+    height: 95%;
+}
+
+.legal-col:nth-child(2) img, .legal-col:nth-child(3) img {
+    width: calc(100% - 8px);
+    margin: 4px;
+}
+
+.legal-col:nth-child(1) img:nth-child(4) {
+    width: calc(19% - 8px);
+}
+
+#legal .copy {
+    text-transform: uppercase;
+    font-size: 14px;
+}

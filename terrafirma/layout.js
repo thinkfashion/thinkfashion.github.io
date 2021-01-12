@@ -3,6 +3,12 @@ var footer = document.getElementById("footer");
 var musicBox = document.getElementById("music-box");
 var boxes = container.getElementsByClassName('box');
 
+var nowYears = document.getElementsByClassName('now-year');
+var d = new Date();
+for (var i = 0; i < nowYears.length; i++) {
+    nowYears[i].innerHTML = d.getFullYear();
+}
+
 var boxHeight = parseInt(window.getComputedStyle(boxes[0]).getPropertyValue('height'));
 var boxWidth = parseInt(window.getComputedStyle(boxes[0]).getPropertyValue('width'));
 boxWidth = boxWidth + parseInt(window.getComputedStyle(boxes[0]).getPropertyValue('margin-left'));
