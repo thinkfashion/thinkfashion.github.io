@@ -259,7 +259,7 @@ svg.rule polyline {
 
 .box.mini.up {
     clip-path: polygon(0% 0%, calc(var(--tab-border-size) + var(--tab-border-size) / 2) 0px, calc(var(--mini-tab-side) + var(--tab-border-size) / 2) calc(var(--mini-tab-side) - var(--tab-border-size)), 100% calc(var(--mini-tab-side) - var(--tab-border-size)), 100% 100%, 0% 100%, 0px 0px);
-    height: 165px;
+    height: 170px;
 }
 
 .box.mini.up .box-tab {
@@ -434,8 +434,8 @@ svg.rule polyline {
 }
 
 .top-rule a.social:nth-child(2) {
-    left: auto;
-    right: 0;
+    left: 21px;
+    top: -16px;
 }
 
 .top-rule a.social img {
@@ -444,6 +444,7 @@ svg.rule polyline {
 }
 .top-rule a.social:nth-child(2) img {
     margin: -7px;
+    width: 43px;
 }
 
 #footer #substack {
@@ -470,4 +471,8 @@ svg.rule polyline {
     top: 14px;
     transform: rotate(-33deg);
     transform-origin: right;
+}
+
+.title-author {
+    padding-right: 25px;
 }

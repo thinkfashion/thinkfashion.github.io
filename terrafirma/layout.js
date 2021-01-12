@@ -19,7 +19,7 @@ function reportWindowSize() {
 	if (remainder !== 0) {
 	    footer.classList.add('lift');
 	}
-	console.log('cols', cols, 'boxes', boxes.length, 'remainder', remainder);
+	// console.log('cols', cols, 'boxes', boxes.length, 'remainder', remainder);
 	// show the correct top-left and top-right svg top lines
 	if (prevCols == 0) {
 	    boxes[0].children[0].classList.remove('hidden');
@@ -70,14 +70,20 @@ var renderBox = function(title, items, className) {
 	linkElem.setAttribute('href', items[i][keys.indexOf('URL')]);
 	linkElem.innerHTML = items[i][keys.indexOf('Title')];
 
-	var authorTwitter = items[i][keys.indexOf('Author Twitter')];
-	var authorContent = items[i][keys.indexOf('Author')];
-	if (authorTwitter != '') {
-	    var authElem = document.createElement('a');
-	    authElem.setAttribute('href', makeTwitterURL(authorTwitter));
-	    authElem.setAttribute('target', '_blank');
-	    authElem.innerHTML = authorContent;
-	    authorContent = authElem.outerHTML;
+	var authorTwitters = items[i][keys.indexOf('Author Twitter')].split(',');
+	var authors = items[i][keys.indexOf('Author')].split(',');
+	var authorContents = [];
+
+	for (var j = 0; j < authors.length; j++) {
+	    if (typeof authorTwitters[j] !== 'undefined' && authorTwitters[j] !== '') {
+		var authElem = document.createElement('a');
+		authElem.setAttribute('href', makeTwitterURL(authorTwitters[j]));
+		authElem.setAttribute('target', '_blank');
+		authElem.innerHTML = authors[j];
+		authorContents.push(authElem.outerHTML);
+	    } else {
+		authorContents.push(authors[j]);
+	    }
 	}
 
 	if (title === 'ICYMI / Featured') {
@@ -86,7 +92,10 @@ var renderBox = function(title, items, className) {
 	    liElem.appendChild(imgElem);
 	}
 
-        liElem.innerHTML = liElem.innerHTML + linkElem.outerHTML + ' // ' + authorContent;
+	var titleDiv = document.createElement('div');
+	titleDiv.classList.add('title-author');
+	titleDiv.innerHTML = linkElem.outerHTML + ' // ' + authorContents.join(' / ');
+        liElem.appendChild(titleDiv);
 
 	var divElem = document.createElement('div');
 	divElem.classList.add('dateline');
@@ -153,7 +162,7 @@ Promise.all([
 }).then(function (data) {
     // Log the data to the console
     // You would do something with both sets of data here
-    console.log(data);
+    // console.log(data);
     // first request
     let values = data[0]['values'];
     for (var i = 1; i < values.length; i++) {
