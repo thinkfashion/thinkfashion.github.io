@@ -103,7 +103,6 @@ svg.brush {
     width: 140px;
     display: block;
     margin: 4px 0 0 var(--tab-side);
-    border: 1px solid darkgreen;
 }
 
 .box svg.rule {
