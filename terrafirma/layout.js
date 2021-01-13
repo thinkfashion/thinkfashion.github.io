@@ -117,13 +117,8 @@ var renderBox = function(title, items, className) {
 
 	text = pubContent;
 	var date = items[i][keys.indexOf('Publish Date')];
-	if (date != null) {
-	    date = new Date(date);
-	    var ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
-	    var mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
-	    var da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
-	    date = ye + '.' + mo + '.' + da;
-	    text = text + ' — ' + date;
+	if (date !== '') {
+	    text = text + ' — ' + date.split('/').join('.');
 	}
         divElem.innerHTML = text;
         liElem.appendChild(divElem);
