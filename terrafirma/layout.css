@@ -146,9 +146,7 @@ svg.brush {
     clip-path: polygon(var(--tab-side) 0px, 100% 0px, 100% 100%, 0% 100%, 0px var(--tab-side));
 }
 #container .box {
-    /* margin: 0 calc(-1 * var(--tab-border-size)) 0 0; */
     /* margin: 0 calc(-1 * var(--tab-border-size)) calc(-1 * var(--tab-side)) 0; */
-    margin-top: 10px;
 }
 .power-red {
     background-image: var(--power-red);
@@ -485,7 +483,7 @@ svg.rule polyline {
 }
 
 .legal-col {
-    margin-right: 25px;
+    margin-left: 25px;
     text-align: center;
 }
 

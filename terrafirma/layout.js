@@ -117,7 +117,7 @@ var renderBox = function(title, items, className) {
 
 	text = pubContent;
 	var date = items[i][keys.indexOf('Publish Date')];
-	if (date !== '') {
+	if (date !== undefined) {
 	    text = text + ' — ' + date.split('/').join('.');
 	}
         divElem.innerHTML = text;
