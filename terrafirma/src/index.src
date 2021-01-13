@@ -1,41 +1,4 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Think Fashion</title>
-  <meta name="description" content="Fashion in society: through the lens of history, innovation, and current events.">
-  <meta name="author" content="Scott Meisburger">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:url" content="https://thinkfashion.news">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Think Fashion">
-  <meta property="og:image" content="#">
-  <meta property="og:description" content="Fashion in society: through the lens of history, innovation, and current events.">
-  <link rel="stylesheet" href="/layout.css">
-  <link rel="icon" type="image/png" href="/assets/favicon-16x16-1.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/assets/favicon-32x32-1.png" sizes="32x32">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XV98X5BKX4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XV98X5BKX4');
-  </script>
-</head>
-<body>
-  <svg class="header" viewBox="-255 -55 510 55">
-    <a href="/">
-      <text x="0" y="-18">Think Fashion•News</text>
-    </a>
-  </svg>
-  <svg class="header" viewBox="-155 0 310 75">
-    <image transform="translate(-11)" x="-66" y="3" width="44" href="/assets/think_fashion_globe_1.svg" />
-    <image x="-22" y="3" width="44" href="/assets/think_fashion_globe_2.svg" />
-    <image transform="translate(11)" x="22" y="3" width="44" href="/assets/think_fashion_globe_3.svg" />
-  </svg>
-
+++include/head.html--
   <div id="container">
     <div class="box" style="display: none;">
       <div class="top-rule hidden">
@@ -106,25 +69,7 @@
       </div>
     </div>
     <iframe id="substack" src="https://thinkfashion.substack.com/embed" width="350" height="290" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
-    <div id="legal">
-      <div class="legal-col">
-        <img src="/assets/think_fashion_target.svg" alt="target"><a href="mailto:hello@thinkfashion.news?subject=say hello to Think Fashion"><img src="/assets/think_fashion_smiley.svg" alt="smiley"></a><img src="/assets/think_fashion_reel.svg" alt="reel"><img src="/assets/think_fashion_document_single.svg" alt="single document">
-        <div class="copy">©&nbsp; HK Mindy Meissen <span class="now-year">1984</span></div>
-      </div>
-      <div class="legal-col">
-	<a href="/terms">
-          <img src="/assets/think_fashion_cd.svg" alt="CD">
-          <div class="copy">Terms</div>
-	</a>
-      </div>
-      <div class="legal-col">
-	<a href="/privacy">
-          <img src="/assets/think_fashion_book_stack.svg" alt="book stack">
-          <div class="copy">Privacy</div>
-	</a>
-      </div>
-    </div>
-
+++include/legal.html--
   </div>
 </div>
   <script type="text/javascript" src="layout.js"></script>

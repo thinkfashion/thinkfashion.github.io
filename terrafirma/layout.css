@@ -17,6 +17,10 @@
     --body-bg: linear-gradient(90deg, #9cca76, #f1718d, #83b9d0, #f7ef81, #f1718d, #f7ef81, #83b9d0, #9cca76);
 }
 
+a {
+   outline: 0;
+}
+
 body {
     margin: 0;
     background-image: var(--body-bg);
@@ -388,12 +392,16 @@ svg.rule polyline {
     /* margin-top: calc(-1 * var(--mini-tab-side)); */
 }
 
-.box.mini.up .icon-bar img:nth-child(1) {
+.box.mini.up .icon-bar img.network {
     width: 45px;
     height: 62px;
 }
-.box.mini.up .icon-bar img:nth-child(2) {
+.box.mini.up .icon-bar img.inbox {
     width: 43px;
+}
+
+.box.mini.up .icon-bar a {
+    z-index: 300;
 }
 
 #newsletter-box .icon-bar {
@@ -506,4 +514,23 @@ svg.rule polyline {
 #legal .copy {
     text-transform: uppercase;
     font-size: 14px;
+}
+
+.box.para {
+    max-width: 800px;
+    width: 100%;
+}
+
+.box.para h1, .box.para svg.brush {
+    top: 0;
+}
+
+.box.para .box-content {
+    border: none;
+}
+
+pre {
+    white-space: pre-wrap;
+    font-family: sans-serif;
+    padding: 0 28px;
 }
