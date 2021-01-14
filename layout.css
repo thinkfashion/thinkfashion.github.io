@@ -207,7 +207,7 @@ svg.brush {
 .culture-blue a.pub:hover,
 .news-orange a.pub:hover,
 .pr-purple a.pub:hover,
-.featureed-yellow a.author:hover {
+.featured-yellow a.author:hover {
     background: var(--innovation-green);
 }
 
