@@ -166,40 +166,49 @@ svg.brush {
     background-image: var(--history-blue);
 }
 
+.featured-yellow a.article:hover,
+.history-blue a.author:hover {
+    background: var(--news-orange);
+}
+
+.power-red a.author:hover,
+.innovation-green a.author:hover,
+.pr-purple a.author:hover,
+.news-orange a.author:hover,
+.climate-yellow a.author:hover,
+.culture-blue a.author:hover,
+.history-blue a.pub:hover {
+    background: var(--featured-yellow);
+}
+
 .power-red a.article:hover,
 .innovation-green a.article:hover,
 .pr-purple a.article:hover,
 .news-orange a.article:hover,
 .climate-yellow a.article:hover,
-.featured-yellow a.author:hover{
-    background: #9fd0e4;
-}
-.power-red a.author:hover,
-.innovation-green a.author:hover,
-.pr-purple a.author:hover,
-.news-orange a.author:hover,
-.culture-blue a.author:hover,
-.climate-yellow a.author:hover,
-.history-blue a.pub:hover {
-    background: #ffff73;
-}
-.power-red a.pub:hover,
-.innovation-green a.pub:hover,
-.pr-purple a.pub:hover,
-.news-orange a.pub:hover,
-.culture-blue a.pub:hover,
+.culture-blue a.article:hover,
 .featured-yellow a.pub:hover {
-    background: #96d5b6;
+    background: var(--history-blue);
 }
 
-.culture-blue a.article:hover,
+.history-blue a.article:hover,
 .climate-yellow a.pub:hover,
-.history-blue a.article:hover {
-    background: #f1718d;
+.culture-blue a.article:hover {
+    background: var(--power-red);
 }
+
 .history-blue a.author:hover,
 .featured-yellow a.article:hover {
-    background: #fdbc7a;
+    background: var(--news-orange);
+}
+
+.power-red a.pub:hover,
+.innovation-green a.pub:hover,
+.culture-blue a.pub:hover,
+.news-orange a.pub:hover,
+.pr-purple a.pub:hover,
+.featureed-yellow a.author:hover {
+    background: var(--innovation-green);
 }
 
 /* https://stackoverflow.com/questions/16377972/how-to-align-left-last-row-line-in-multiple-line-flexbox */
