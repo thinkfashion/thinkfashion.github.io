@@ -72,6 +72,7 @@ var renderBox = function(title, items, className) {
     for (var i = 0; i < items.length; i++) {
         var liElem = document.createElement('li');
 	var linkElem = document.createElement('a');
+	linkElem.classList.add('article');
 	linkElem.setAttribute('target', '_blank');
 	linkElem.setAttribute('href', items[i][keys.indexOf('URL')]);
 	linkElem.innerHTML = items[i][keys.indexOf('Title')];
@@ -83,6 +84,7 @@ var renderBox = function(title, items, className) {
 	for (var j = 0; j < authors.length; j++) {
 	    if (typeof authorTwitters[j] !== 'undefined' && authorTwitters[j] !== '') {
 		var authElem = document.createElement('a');
+		authElem.classList.add('author');
 		authElem.setAttribute('href', makeTwitterURL(authorTwitters[j]));
 		authElem.setAttribute('target', '_blank');
 		authElem.innerHTML = authors[j];
@@ -93,9 +95,13 @@ var renderBox = function(title, items, className) {
 	}
 
 	if (title === 'ICYMI / Featured') {
+	    var imgLinkElem = document.createElement('a');
+	    imgLinkElem.setAttribute('target', '_blank');
+	    imgLinkElem.setAttribute('href', items[i][keys.indexOf('URL')]);
 	    var imgElem = document.createElement('img');
 	    imgElem.setAttribute('src', items[i][keys.indexOf('Image URL')]);
-	    liElem.appendChild(imgElem);
+	    imgLinkElem.appendChild(imgElem);
+	    liElem.appendChild(imgLinkElem);
 	}
 
 	var titleDiv = document.createElement('div');
@@ -109,6 +115,7 @@ var renderBox = function(title, items, className) {
 	var pubContent = items[i][keys.indexOf('Publication Title')];
 	if (pubURL != '') {
 	    var pubElem = document.createElement('a');
+	    pubElem.classList.add('pub');
 	    pubElem.setAttribute('href', pubURL);
 	    pubElem.setAttribute('target', '_blank');
 	    pubElem.innerHTML = pubContent;
