@@ -2,6 +2,7 @@ var container = document.getElementById("container");
 var footer = document.getElementById("footer");
 var musicBox = document.getElementById("music-box");
 var boxes = container.getElementsByClassName('box');
+const itemsPerCard = 8;
 
 var nowYears = document.getElementsByClassName('now-year');
 var d = new Date();
@@ -69,7 +70,7 @@ var renderBox = function(title, items, className) {
     elem.children[1].classList.add(className); // .box.inner
     elem.getElementsByTagName('h1')[0].textContent = title;
 
-    for (var i = 0; i < items.length; i++) {
+    for (var i = 0; i < items.slice(-1 * itemsPerCard).length; i++) {
         var liElem = document.createElement('li');
 	var linkElem = document.createElement('a');
 	linkElem.classList.add('article');
